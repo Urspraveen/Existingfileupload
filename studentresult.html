@@ -1,0 +1,286 @@
+<html>
+
+<head>
+
+<style>
+body{
+margin:0;
+}
+
+.main{
+display:flex;
+flex-wrap:wrap;
+margin-top:30px;
+margin-left:20px;
+}
+
+.sub1{
+border:solid 1px red;
+height:600px;
+width:23%;
+margin-right:30px;
+box-sizing:border-box;
+padding:20px 40px 0 40px;
+}
+
+#sub2{
+border:solid 1px red;
+height:600px;
+width:70%;
+}
+
+input{
+display:block;
+margin-bottom:20px;
+height:30px;
+}
+
+table{
+text-align:center;
+}
+
+</style>
+
+
+
+<script>
+
+
+function avgGrade(totalmarks){
+var avgGrade='D';
+
+if(totalmarks>=420){
+avgGrade='A';
+}else if(totalmarks>=360){
+avgGrade='B';
+}else if(totalmarks>=280){
+avgGrade='C';
+}
+
+return(avgGrade);
+
+}
+
+
+
+function subGrade(submarks){          
+ var subgrade='D';
+
+if(submarks>=80){
+subgrade='A';
+}else if(submarks>=60){
+subgrade='B';
+}else if(submarks>=35){
+subgrade='C';
+}
+
+return(subgrade);
+
+}
+
+
+
+
+function  reportcard(){
+
+
+var sn=document.getElementById("sn").value;
+var srn=document.getElementById("srn").value;
+var sc=document.getElementById("sc").value;
+
+var s1=parseInt(document.getElementById("s1").value);
+var s2=parseInt(document.getElementById("s2").value);
+var s3=parseInt(document.getElementById("s3").value);
+var s4=parseInt(document.getElementById("s4").value);
+var s5=parseInt(document.getElementById("s5").value);
+var s6=parseInt(document.getElementById("s6").value);
+
+var totalmarks=s1+s2+s3+s4+s5+s6;
+
+
+var result;
+
+if(s1>=35 && s2>=35 && s3>=35 && s4>=35 && s5>=35 && s6>=35){
+result='PASS';
+}else{
+result='FAIL';
+}
+
+
+
+
+var table="";
+
+table+="<table border='1' cellpadding='10' cellspacing='0' width=100%>"
+
+table+="<tr>"
+table+="<th> Student Name</th>"
+table+="<td colspan='2'>"+sn+"</td>"				 			
+table+="</tr>"			
+
+table+="<tr>"
+table+="<td> Rollno :"+srn+"</td>"
+table+="<td colspan='2'> Class :"+sc+"</td>"				 			
+table+="</tr>"	
+
+table+="<tr>"
+table+="<th> Subject</th>"
+table+="<th> Marks</th>"		
+table+="<th> Grade</th>"			 			
+table+="</tr>"
+
+table+="<tr>"
+table+="<td> Telugu</td>"
+table+="<td>"+s1+"</td>"		
+table+="<td>"+subGrade(s1)+"</td>"			 			
+table+="</tr>"
+
+table+="<tr>"
+table+="<td> Hindi</td>"
+table+="<td>"+s2+"</td>"		
+table+="<td>"+subGrade(s2)+"</td>"			 			
+table+="</tr>"
+
+table+="<tr>"
+table+="<td> English</td>"
+table+="<td>"+s3+"</td>"		
+table+="<td>"+subGrade(s3)+"</td>"			 			
+table+="</tr>"
+
+table+="<tr>"
+table+="<td> Maths</td>"
+table+="<td>"+s4+"</td>"		
+table+="<td>"+subGrade(s4)+"</td>"			 			
+table+="</tr>"
+
+table+="<tr>"
+table+="<td> Science</td>"
+table+="<td>"+s5+"</td>"		
+table+="<td>"+subGrade(s5)+"</td>"			 			
+table+="</tr>"
+
+table+="<tr>"
+table+="<td> Social</td>"
+table+="<td>"+s6+"</td>"		
+table+="<td>"+subGrade(s6)+"</td>"			 			
+table+="</tr>"
+
+table+="<tr>"
+table+="<td> Total Marks</td>"
+table+="<td colspan='2'>"+totalmarks+"</td>"					 			
+table+="</tr>"
+
+table+="<tr>"
+table+="<td> Result</td>"
+table+="<td colspan='2'>"+result+"</td>"					 			
+table+="</tr>"
+
+table+="<tr>"
+table+="<td> Avg Grade</td>"
+table+="<td colspan='2'>"+avgGrade(totalmarks)+"</td>"					 			
+table+="</tr>"
+
+table+="</table>"
+
+
+
+
+document.getElementById('sub2').innerHTML=table;
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</head>
+
+
+
+
+<body>
+
+
+<div class="main">
+
+     <div class="sub1">
+	     <h3> Enter Student Marks  </h3>
+	   
+	    <input id="sn" type="text" placeholder="enter your name"/> 
+		<input id="srn" type="number" placeholder="enter your Rollno"/> 
+		<input id="sc" type="number" placeholder="enter your class"/> 
+		
+		<input id="s1" type="number" placeholder="enter Telugu marks"/>
+        <input id="s2" type="number" placeholder="enter Hindi marks"/> 		
+	   	<input id="s3" type="number" placeholder="enter English marks"/>
+        <input id="s4" type="number" placeholder="enter Maths marks"/> 		
+	   	<input id="s5" type="number" placeholder="enter Science marks"/>
+        <input id="s6" type="number" placeholder="enter Social marks"/> 
+
+		
+	    <button onclick="reportcard()">  SHOW RESULT     </button>  
+	 
+	 </div>
+	 
+	 
+	 
+	  <div id="sub2">
+	  
+	 
+	    
+	  
+	 
+	  </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
